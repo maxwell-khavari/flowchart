@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three Demographic AI Models Technical Flowchart</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.21.1/cytoscape.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dagre/0.8.5/dagre.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape-dagre/2.3.2/cytoscape-dagre.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+        
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 32px;
+            font-weight: bold;
+        }
+        
+        .header p {
+            margin: 0;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .flowchart-wrapper {
+            position: relative;
+            width: 100%;
+            height: 1200px;
+            background: white;
+        }
+        
+        #flowchart {
+            width: 100%;
+            height: 100%;
+        }
+        
+        .legend {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.95);
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            font-size: 12px;
+            z-index: 1000;
+        }
+        
+        .legend h4 {
+            margin: 0 0 10px 0;
+            color: #333;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+        
+        .legend-color {
+            width: 16px;
+            height: 16px;
+            border-radius: 3px;
+            margin-right: 8px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>UNIFIED DEMOGRAPHIC AI FRAMEWORK</h1>
+            <p>Three Novel Approaches to Professional Representation</p>
+        </div>
+        
+        <div class="flowchart-wrapper">
+            <div id="flowchart"></div>
+            
+            <div class="legend">
+                <h4>Legend</h4>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #2E86AB;"></div>
+                    <span>Statistical Realism</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #28B463;"></div>
+                    <span>Equal Representation</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #8E44AD;"></div>
+                    <span>Minority Amplification</span>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color" style="background: #F4D03F;"></div>
+                    <span>Integration Layer</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const cy = cytoscape({
+            container: document.getElementById('flowchart'),
+            
+            elements: [
+                // Statistical Realism Model (Left Column)
+                { data: { id: 'stat-title', label: 'STATISTICAL REALISM\nMirror Real-World\nDemographics', type: 'title', model: 'statistical' } },
+                { data: { id: 'stat-bls', label: 'BLS Data\n(Government DB)', type: 'data', model: 'statistical' } },
+                { data: { id: 'stat-census', label: 'Census Statistics\n(Population)', type: 'data', model: 'statistical' } },
+                { data: { id: 'stat-license', label: 'Professional\nLicensing', type: 'data', model: 'statistical' } },
+                { data: { id: 'stat-embed', label: 'Statistical\nEmbedding Layer', type: 'arch', model: 'statistical' } },
+                { data: { id: 'stat-attention', label: 'Implicit Attention\nModule', type: 'arch', model: 'statistical' } },
+                { data: { id: 'stat-calib', label: 'Calibration\nHead', type: 'arch', model: 'statistical' } },
+                { data: { id: 'stat-p1', label: 'Phase 1:\nStatistical Learning', type: 'phase', model: 'statistical' } },
+                { data: { id: 'stat-p2', label: 'Phase 2:\nLanguage Patterns', type: 'phase', model: 'statistical' } },
+                { data: { id: 'stat-p3', label: 'Phase 3:\nCross-Validation', type: 'phase', model: 'statistical' } },
+                { data: { id: 'stat-decision', label: 'Generate\nProfessional\nContent?', type: 'decision', model: 'statistical' } },
+                { data: { id: 'stat-lang', label: 'Language\nStructure', type: 'process', model: 'statistical' } },
+                { data: { id: 'stat-demo', label: 'BLS\nStatistics', type: 'process', model: 'statistical' } },
+                { data: { id: 'stat-output', label: 'Realistic Output', type: 'output', model: 'statistical' } },
+                { data: { id: 'stat-eval', label: '±5% BLS accuracy\nMulti-source validation\nTemporal consistency', type: 'eval', model: 'statistical' } },
+
+                // Equal Representation Model (Middle Column)
+                { data: { id: 'equal-title', label: 'EQUAL REPRESENTATION\nPerfect Demographic\nEquality', type: 'title', model: 'equal' } },
+                { data: { id: 'equal-text', label: 'Professional Text\n(Documents)', type: 'data', model: 'equal' } },
+                { data: { id: 'equal-no-demo', label: 'NO Demographic\nStatistics', type: 'data-blocked', model: 'equal' } },
+                { data: { id: 'equal-enforce', label: 'Equality\nEnforcement Layer', type: 'arch', model: 'equal' } },
+                { data: { id: 'equal-antibias', label: 'Anti-Bias\nTraining', type: 'arch', model: 'equal' } },
+                { data: { id: 'equal-flatten', label: 'Flatten\nAlgorithm', type: 'arch', model: 'equal' } },
+                { data: { id: 'equal-p1', label: 'Phase 1:\nLanguage Only', type: 'phase', model: 'equal' } },
+                { data: { id: 'equal-p2', label: 'Phase 2:\nBias Removal', type: 'phase', model: 'equal' } },
+                { data: { id: 'equal-p3', label: 'Phase 3:\nEquality Enforcement', type: 'phase', model: 'equal' } },
+                { data: { id: 'equal-decision', label: 'Generate\nProfessional\nContent?', type: 'decision', model: 'equal' } },
+                { data: { id: 'equal-lang', label: 'Language\nStructure', type: 'process', model: 'equal' } },
+                { data: { id: 'equal-control', label: 'Equality\nController', type: 'process', model: 'equal' } },
+                { data: { id: 'equal-output', label: 'Equal Representation\nOutput', type: 'output', model: 'equal' } },
+                { data: { id: 'equal-eval', label: 'Perfect 50/50 achievement\nZero statistical correlation\nConsistency across professions', type: 'eval', model: 'equal' } },
+
+                // Minority Amplification Model (Right Column)
+                { data: { id: 'amp-title', label: 'MINORITY AMPLIFICATION\nOverrepresent\nUnderrepresented', type: 'title', model: 'amplification' } },
+                { data: { id: 'amp-hist', label: 'Historical\nExclusion Data', type: 'data', model: 'amplification' } },
+                { data: { id: 'amp-current', label: 'Current\nDemographics', type: 'data', model: 'amplification' } },
+                { data: { id: 'amp-intersect', label: 'Intersectional\nStatistics', type: 'data', model: 'amplification' } },
+                { data: { id: 'amp-text', label: 'Professional\nText', type: 'data', model: 'amplification' } },
+                { data: { id: 'amp-compensator', label: 'Historical Bias\nCompensator', type: 'arch', model: 'amplification' } },
+                { data: { id: 'amp-boost', label: 'Minority Boost\nLayer', type: 'arch', model: 'amplification' } },
+                { data: { id: 'amp-guard', label: 'Ethical\nGuardrails', type: 'arch', model: 'amplification' } },
+                { data: { id: 'amp-p1', label: 'Phase 1:\nHistorical Analysis', type: 'phase', model: 'amplification' } },
+                { data: { id: 'amp-p2', label: 'Phase 2:\nAmplification Learning', type: 'phase', model: 'amplification' } },
+                { data: { id: 'amp-p3', label: 'Phase 3:\nIntersectional Math', type: 'phase', model: 'amplification' } },
+                { data: { id: 'amp-p4', label: 'Phase 4:\nEthical Calibration', type: 'phase', model: 'amplification' } },
+                { data: { id: 'amp-decision', label: 'Generate\nProfessional\nContent?', type: 'decision', model: 'amplification' } },
+                { data: { id: 'amp-lang', label: 'Language\nStructure', type: 'process', model: 'amplification' } },
+                { data: { id: 'amp-factors', label: 'Amplification\nFactors', type: 'process', model: 'amplification' } },
+                { data: { id: 'amp-limits', label: 'Ethical\nLimits', type: 'process', model: 'amplification' } },
+                { data: { id: 'amp-output', label: 'Amplified Minority\nOutput', type: 'output', model: 'amplification' } },
+                { data: { id: 'amp-eval', label: '2-4x minority boost achieved\nIntersectional accuracy\nEthical boundary compliance', type: 'eval', model: 'amplification' } },
+
+                // Integration Layer
+                { data: { id: 'meta-controller', label: 'META-LEARNING\nDEMOGRAPHIC CONTROLLER', type: 'integration', model: 'integration' } },
+                { data: { id: 'context-aware', label: 'Context-Aware\nMode Selection', type: 'integration', model: 'integration' } },
+                { data: { id: 'real-time', label: 'Real-time\nMode Switching', type: 'integration', model: 'integration' } },
+
+                // Edges (connections)
+                // Statistical Model flows
+                { data: { source: 'stat-title', target: 'stat-bls' } },
+                { data: { source: 'stat-title', target: 'stat-census' } },
+                { data: { source: 'stat-title', target: 'stat-license' } },
+                { data: { source: 'stat-bls', target: 'stat-embed' } },
+                { data: { source: 'stat-census', target: 'stat-embed' } },
+                { data: { source: 'stat-license', target: 'stat-embed' } },
+                { data: { source: 'stat-embed', target: 'stat-attention' } },
+                { data: { source: 'stat-attention', target: 'stat-calib' } },
+                { data: { source: 'stat-calib', target: 'stat-p1' } },
+                { data: { source: 'stat-p1', target: 'stat-p2' } },
+                { data: { source: 'stat-p2', target: 'stat-p3' } },
+                { data: { source: 'stat-p3', target: 'stat-p1', type: 'feedback' } },
+                { data: { source: 'stat-p3', target: 'stat-decision' } },
+                { data: { source: 'stat-decision', target: 'stat-lang' } },
+                { data: { source: 'stat-decision', target: 'stat-demo' } },
+                { data: { source: 'stat-lang', target: 'stat-output' } },
+                { data: { source: 'stat-demo', target: 'stat-output' } },
+                { data: { source: 'stat-output', target: 'stat-eval' } },
+
+                // Equal Model flows
+                { data: { source: 'equal-title', target: 'equal-text' } },
+                { data: { source: 'equal-title', target: 'equal-no-demo' } },
+                { data: { source: 'equal-text', target: 'equal-enforce' } },
+                { data: { source: 'equal-enforce', target: 'equal-antibias' } },
+                { data: { source: 'equal-antibias', target: 'equal-flatten' } },
+                { data: { source: 'equal-flatten', target: 'equal-p1' } },
+                { data: { source: 'equal-p1', target: 'equal-p2' } },
+                { data: { source: 'equal-p2', target: 'equal-p3' } },
+                { data: { source: 'equal-p3', target: 'equal-decision' } },
+                { data: { source: 'equal-decision', target: 'equal-lang' } },
+                { data: { source: 'equal-decision', target: 'equal-control' } },
+                { data: { source: 'equal-lang', target: 'equal-output' } },
+                { data: { source: 'equal-control', target: 'equal-output' } },
+                { data: { source: 'equal-output', target: 'equal-eval' } },
+
+                // Amplification Model flows
+                { data: { source: 'amp-title', target: 'amp-hist' } },
+                { data: { source: 'amp-title', target: 'amp-current' } },
+                { data: { source: 'amp-title', target: 'amp-intersect' } },
+                { data: { source: 'amp-title', target: 'amp-text' } },
+                { data: { source: 'amp-hist', target: 'amp-compensator' } },
+                { data: { source: 'amp-current', target: 'amp-compensator' } },
+                { data: { source: 'amp-intersect', target: 'amp-compensator' } },
+                { data: { source: 'amp-text', target: 'amp-compensator' } },
+                { data: { source: 'amp-compensator', target: 'amp-boost' } },
+                { data: { source: 'amp-boost', target: 'amp-guard' } },
+                { data: { source: 'amp-guard', target: 'amp-p1' } },
+                { data: { source: 'amp-p1', target: 'amp-p2' } },
+                { data: { source: 'amp-p2', target: 'amp-p3' } },
+                { data: { source: 'amp-p3', target: 'amp-p4' } },
+                { data: { source: 'amp-p4', target: 'amp-p2', type: 'feedback' } },
+                { data: { source: 'amp-p4', target: 'amp-decision' } },
+                { data: { source: 'amp-decision', target: 'amp-lang' } },
+                { data: { source: 'amp-decision', target: 'amp-factors' } },
+                { data: { source: 'amp-decision', target: 'amp-limits' } },
+                { data: { source: 'amp-lang', target: 'amp-output' } },
+                { data: { source: 'amp-factors', target: 'amp-output' } },
+                { data: { source: 'amp-limits', target: 'amp-output' } },
+                { data: { source: 'amp-output', target: 'amp-eval' } },
+
+                // Cross-model connections
+                { data: { source: 'stat-attention', target: 'equal-enforce', type: 'cross' } },
+                { data: { source: 'equal-flatten', target: 'amp-compensator', type: 'cross' } },
+
+                // Integration connections
+                { data: { source: 'stat-output', target: 'meta-controller' } },
+                { data: { source: 'equal-output', target: 'meta-controller' } },
+                { data: { source: 'amp-output', target: 'meta-controller' } },
+                { data: { source: 'meta-controller', target: 'context-aware' } },
+                { data: { source: 'meta-controller', target: 'real-time' } }
+            ],
+
+            style: [
+                {
+                    selector: 'node',
+                    style: {
+                        'width': 120,
+                        'height': 60,
+                        'label': 'data(label)',
+                        'text-valign': 'center',
+                        'text-halign': 'center',
+                        'font-size': '10px',
+                        'font-weight': 'bold',
+                        'color': 'white',
+                        'text-wrap': 'wrap',
+                        'text-max-width': '110px',
+                        'border-width': 2,
+                        'border-color': '#333'
+                    }
+                },
+                {
+                    selector: 'node[type="title"]',
+                    style: {
+                        'width': 150,
+                        'height': 80,
+                        'shape': 'round-rectangle',
+                        'font-size': '12px',
+                        'font-weight': 'bold'
+                    }
+                },
+                {
+                    selector: 'node[model="statistical"]',
+                    style: {
+                        'background-color': '#2E86AB'
+                    }
+                },
+                {
+                    selector: 'node[model="equal"]',
+                    style: {
+                        'background-color': '#28B463'
+                    }
+                },
+                {
+                    selector: 'node[model="amplification"]',
+                    style: {
+                        'background-color': '#8E44AD'
+                    }
+                },
+                {
+                    selector: 'node[model="integration"]',
+                    style: {
+                        'background-color': '#F4D03F',
+                        'color': '#333',
+                        'width': 160,
+                        'height': 70
+                    }
+                },
+                {
+                    selector: 'node[type="data"]',
+                    style: {
+                        'shape': 'rectangle',
+                        'border-style': 'dashed'
+                    }
+                },
+                {
+                    selector: 'node[type="data-blocked"]',
+                    style: {
+                        'shape': 'rectangle',
+                        'border-style': 'dashed',
+                        'background-color': '#e74c3c',
+                        'text-decoration': 'line-through'
+                    }
+                },
+                {
+                    selector: 'node[type="arch"]',
+                    style: {
+                        'shape': 'hexagon',
+                        'width': 100,
+                        'height': 100
+                    }
+                },
+                {
+                    selector: 'node[type="phase"]',
+                    style: {
+                        'shape': 'round-rectangle',
+                        'width': 130,
+                        'height': 50
+                    }
+                },
+                {
+                    selector: 'node[type="decision"]',
+                    style: {
+                        'shape': 'diamond',
+                        'width': 100,
+                        'height': 80,
+                        'background-color': '#AED6F1',
+                        'color': '#333'
+                    }
+                },
+                {
+                    selector: 'node[type="process"]',
+                    style: {
+                        'shape': 'round-rectangle',
+                        'width': 110,
+                        'height': 50
+                    }
+                },
+                {
+                    selector: 'node[type="output"]',
+                    style: {
+                        'shape': 'round-rectangle',
+                        'background-color': '#27ae60',
+                        'width': 140,
+                        'height': 60,
+                        'font-weight': 'bold'
+                    }
+                },
+                {
+                    selector: 'node[type="eval"]',
+                    style: {
+                        'shape': 'rectangle',
+                        'background-color': '#95a5a6',
+                        'width': 180,
+                        'height': 80,
+                        'font-size': '9px'
+                    }
+                },
+                {
+                    selector: 'edge',
+                    style: {
+                        'width': 3,
+                        'line-color': '#333',
+                        'target-arrow-color': '#333',
+                        'target-arrow-shape': 'triangle',
+                        'curve-style': 'bezier'
+                    }
+                },
+                {
+                    selector: 'edge[type="feedback"]',
+                    style: {
+                        'line-color': '#e67e22',
+                        'target-arrow-color': '#e67e22',
+                        'line-style': 'dashed'
+                    }
+                },
+                {
+                    selector: 'edge[type="cross"]',
+                    style: {
+                        'line-color': '#9b59b6',
+                        'target-arrow-color': '#9b59b6',
+                        'line-style': 'dotted',
+                        'width': 2
+                    }
+                }
+            ],
+
+            layout: {
+                name: 'preset',
+                positions: {
+                    // Statistical Model (Left Column) - x: 150-300
+                    'stat-title': { x: 200, y: 50 },
+                    'stat-bls': { x: 120, y: 130 },
+                    'stat-census': { x: 200, y: 130 },
+                    'stat-license': { x: 280, y: 130 },
+                    'stat-embed': { x: 150, y: 220 },
+                    'stat-attention': { x: 250, y: 220 },
+                    'stat-calib': { x: 200, y: 300 },
+                    'stat-p1': { x: 120, y: 380 },
+                    'stat-p2': { x: 200, y: 380 },
+                    'stat-p3': { x: 280, y: 380 },
+                    'stat-decision': { x: 200, y: 460 },
+                    'stat-lang': { x: 150, y: 540 },
+                    'stat-demo': { x: 250, y: 540 },
+                    'stat-output': { x: 200, y: 620 },
+                    'stat-eval': { x: 200, y: 700 },
+
+                    // Equal Model (Middle Column) - x: 500-650
+                    'equal-title': { x: 550, y: 50 },
+                    'equal-text': { x: 520, y: 130 },
+                    'equal-no-demo': { x: 580, y: 130 },
+                    'equal-enforce': { x: 500, y: 220 },
+                    'equal-antibias': { x: 600, y: 220 },
+                    'equal-flatten': { x: 550, y: 300 },
+                    'equal-p1': { x: 470, y: 380 },
+                    'equal-p2': { x: 550, y: 380 },
+                    'equal-p3': { x: 630, y: 380 },
+                    'equal-decision': { x: 550, y: 460 },
+                    'equal-lang': { x: 500, y: 540 },
+                    'equal-control': { x: 600, y: 540 },
+                    'equal-output': { x: 550, y: 620 },
+                    'equal-eval': { x: 550, y: 700 },
+
+                    // Amplification Model (Right Column) - x: 850-1000
+                    'amp-title': { x: 900, y: 50 },
+                    'amp-hist': { x: 820, y: 130 },
+                    'amp-current': { x: 880, y: 130 },
+                    'amp-intersect': { x: 940, y: 130 },
+                    'amp-text': { x: 1000, y: 130 },
+                    'amp-compensator': { x: 850, y: 220 },
+                    'amp-boost': { x: 950, y: 220 },
+                    'amp-guard': { x: 900, y: 300 },
+                    'amp-p1': { x: 820, y: 380 },
+                    'amp-p2': { x: 880, y: 380 },
+                    'amp-p3': { x: 940, y: 380 },
+                    'amp-p4': { x: 1000, y: 380 },
+                    'amp-decision': { x: 900, y: 460 },
+                    'amp-lang': { x: 820, y: 540 },
+                    'amp-factors': { x: 900, y: 540 },
+                    'amp-limits': { x: 980, y: 540 },
+                    'amp-output': { x: 900, y: 620 },
+                    'amp-eval': { x: 900, y: 700 },
+
+                    // Integration Layer
+                    'meta-controller': { x: 550, y: 800 },
+                    'context-aware': { x: 450, y: 880 },
+                    'real-time': { x: 650, y: 880 }
+                }
+            }
+        });
+
+        // Add zoom and pan controls
+        cy.on('tap', function(evt){
+            if(evt.target === cy){
+                console.log('tap on background');
+            }
+        });
+
+        // Fit the graph to container
+        cy.fit();
+    </script>
+</body>
+</html>
+
